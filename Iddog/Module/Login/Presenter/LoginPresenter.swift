@@ -8,7 +8,7 @@
 
 import Foundation
 
-class LoginPresenter: NSObject, LoginPresenterInput {
+class LoginPresenter: LoginPresenterInput {
     
     weak var output: LoginPresenterOutput?
     
@@ -21,20 +21,29 @@ class LoginPresenter: NSObject, LoginPresenterInput {
         self.interactor = interactor
     }
     
-    func sendLogin(with email: String) {
+    func sendLogin(with email: String?) {
+        output?.clearBorder()
         interactor.fecth(email: email)
     }
 }
 
 extension LoginPresenter: LoginInteractorOutput {
     
-    func didError(with error: Error) {
-        
+    func didError(with error: ErrorType) {
+        let title = "Oppss Error"
+        switch error {
+        case .emailEmpty, .emailInvalid:
+            output?.didError()
+        case .networking:
+            output?.alert(title: title, message: "Verifique sua conexão")
+        case .serve:
+            output?.alert(title: title, message: "Error com conexão do servidor")
+        case .unauthorized:
+            output?.alert(title: title, message: "Usuário não autorizado")
+        }
     }
     
     func didLogged() {
         
     }
-    
-    
 }

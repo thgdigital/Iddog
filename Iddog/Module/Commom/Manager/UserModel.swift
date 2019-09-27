@@ -7,3 +7,16 @@
 //
 
 import Foundation
+
+struct UserModel: Codable {
+    let email, id, token, createdAt: String
+    let updatedAt: String
+    let version: Int
+
+    enum CodingKeys: String, CodingKey {
+        case email
+        case id = "_id"
+        case token, createdAt, updatedAt
+        case version = "__v"
+    }
+}

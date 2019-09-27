@@ -10,10 +10,11 @@ import UIKit
 
 class LoginController: UIViewController {
     
-    weak var presenter: LoginPresenterInput?
+    var presenter: LoginPresenterInput!
     
     @IBOutlet weak var boxViewEmail: UIView!
     @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var emailTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +28,29 @@ class LoginController: UIViewController {
     }
     
     @objc func didTap(_ sender: UIButton) {
-        
+        presenter?.sendLogin(with: emailTextField.text)
     }
     
+    
+    fileprivate func setLayoutBorder(width: CGFloat, color: UIColor) {
+        boxViewEmail.layer.borderWidth = width
+        boxViewEmail.layer.borderColor = color.cgColor
+        boxViewEmail.setNeedsLayout()
+    }
 }
 
 extension LoginController: LoginPresenterOutput {
+    
+    func clearBorder() {
+        setLayoutBorder(width: 0, color: .clear)
+    }
+    
+    
+    func alert(title: String, message: String) {
+        
+    }
+    
     func didError() {
+        setLayoutBorder(width: 1, color: .red)
     }
 }

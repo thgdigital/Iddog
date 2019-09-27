@@ -8,19 +8,21 @@
 
 import Foundation
 
-protocol LoginPresenterInput: class {
-    func sendLogin(with email: String)
+protocol LoginPresenterInput {
+    func sendLogin(with email: String?)
 }
 
 protocol LoginPresenterOutput: class {
     func didError()
+    func alert(title: String, message: String)
+    func clearBorder()
 }
 
 protocol LoginInteractorInput {
-    func fecth(email: String)
+    func fecth(email: String?)
 }
 
 protocol LoginInteractorOutput: class {
-    func didError(with error: Error)
+    func didError(with error: ErrorType)
     func didLogged()
 }

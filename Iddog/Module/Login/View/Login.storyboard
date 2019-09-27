@@ -66,6 +66,7 @@
                     </view>
                     <connections>
                         <outlet property="boxViewEmail" destination="FTj-W8-PdK" id="x4J-XV-UJH"/>
+                        <outlet property="emailTextField" destination="AQv-ZD-D3q" id="ZrY-XJ-FGS"/>
                         <outlet property="sendButton" destination="Ndu-2b-xG3" id="MBH-tN-Nxm"/>
                     </connections>
                 </viewController>

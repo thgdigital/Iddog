@@ -21,6 +21,9 @@
 		AF4F5D6E233E71C800EFD91F /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4F5D6D233E71C800EFD91F /* LoginPresenter.swift */; };
 		AF4F5D70233E72C300EFD91F /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4F5D6F233E72C300EFD91F /* LoginInteractor.swift */; };
 		AF4F5D72233E780100EFD91F /* StoryboardInstanciate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4F5D71233E780100EFD91F /* StoryboardInstanciate.swift */; };
+		AFF40DA9233E960200D138BB /* RouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF40DA8233E960200D138BB /* RouterManager.swift */; };
+		AFF40DAB233E9F5600D138BB /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF40DAA233E9F5600D138BB /* UserModel.swift */; };
+		AFF40DAD233EB44300D138BB /* LoginUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF40DAC233EB44300D138BB /* LoginUserModel.swift */; };
 		E012FCA5EE28D31EF7345D80 /* Pods_Iddog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DD468CB518DA58FF05C3D63 /* Pods_Iddog.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +61,9 @@
 		AF4F5D6D233E71C800EFD91F /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		AF4F5D6F233E72C300EFD91F /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		AF4F5D71233E780100EFD91F /* StoryboardInstanciate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInstanciate.swift; sourceTree = "<group>"; };
+		AFF40DA8233E960200D138BB /* RouterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterManager.swift; sourceTree = "<group>"; };
+		AFF40DAA233E9F5600D138BB /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		AFF40DAC233EB44300D138BB /* LoginUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +161,7 @@
 		AF4F5D5D233E6F7B00EFD91F /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				AFF40DA6233E94AE00D138BB /* Commom */,
 				AF4F5D5F233E6F9B00EFD91F /* ListDog */,
 				AF4F5D5E233E6F8D00EFD91F /* Login */,
 			);
@@ -219,6 +226,24 @@
 				AF4F5D6F233E72C300EFD91F /* LoginInteractor.swift */,
 			);
 			path = Intercator;
+			sourceTree = "<group>";
+		};
+		AFF40DA6233E94AE00D138BB /* Commom */ = {
+			isa = PBXGroup;
+			children = (
+				AFF40DA7233E94C200D138BB /* Manager */,
+			);
+			path = Commom;
+			sourceTree = "<group>";
+		};
+		AFF40DA7233E94C200D138BB /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				AFF40DA8233E960200D138BB /* RouterManager.swift */,
+				AFF40DAA233E9F5600D138BB /* UserModel.swift */,
+				AFF40DAC233EB44300D138BB /* LoginUserModel.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -396,15 +421,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFF40DA9233E960200D138BB /* RouterManager.swift in Sources */,
 				AF4F5D39233E3EEC00EFD91F /* AppDelegate.swift in Sources */,
 				AF4F5D3B233E3EEC00EFD91F /* SceneDelegate.swift in Sources */,
 				AF4F5D6E233E71C800EFD91F /* LoginPresenter.swift in Sources */,
 				AF4F5D6A233E717600EFD91F /* LoginProtocol.swift in Sources */,
 				AF4F5D70233E72C300EFD91F /* LoginInteractor.swift in Sources */,
+				AFF40DAD233EB44300D138BB /* LoginUserModel.swift in Sources */,
 				AF4F5D5C233E531F00EFD91F /* Helper.swift in Sources */,
 				AF4F5D63233E6FFF00EFD91F /* LoginController.swift in Sources */,
 				AF4F5D6C233E719B00EFD91F /* LoginRoute.swift in Sources */,
 				AF4F5D72233E780100EFD91F /* StoryboardInstanciate.swift in Sources */,
+				AFF40DAB233E9F5600D138BB /* UserModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

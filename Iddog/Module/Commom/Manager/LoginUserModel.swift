@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+struct LoginUserModel: Codable {
+    let user: UserModel
+}
