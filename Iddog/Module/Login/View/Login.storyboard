@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login Controller-->
+        <scene sceneID="dVW-NC-rZM">
+            <objects>
+                <viewController storyboardIdentifier="LoginController" id="JpJ-eQ-JIe" customClass="LoginController" customModule="Iddog" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="loc-39-5nl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Iddog" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cdw-ok-y6k">
+                                <rect key="frame" x="175" y="371.5" width="64.5" height="31.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FTj-W8-PdK">
+                                <rect key="frame" x="16" y="423" width="382" height="50"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Digite seu e-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AQv-ZD-D3q">
+                                        <rect key="frame" x="20" y="0.0" width="362" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" textContentType="email"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="AQv-ZD-D3q" secondAttribute="bottom" id="GuX-tO-0pJ"/>
+                                    <constraint firstItem="AQv-ZD-D3q" firstAttribute="top" secondItem="FTj-W8-PdK" secondAttribute="top" id="O1A-01-ef8"/>
+                                    <constraint firstAttribute="height" constant="50" id="QBf-Pa-1Ba"/>
+                                    <constraint firstItem="AQv-ZD-D3q" firstAttribute="leading" relation="lessThanOrEqual" secondItem="FTj-W8-PdK" secondAttribute="leading" constant="20" id="gLB-q5-85z"/>
+                                    <constraint firstAttribute="trailing" secondItem="AQv-ZD-D3q" secondAttribute="trailing" id="xnD-fy-4Ue"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ndu-2b-xG3">
+                                <rect key="frame" x="92" y="493" width="250" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="YAV-JM-Iew"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="hDo-zs-J4G"/>
+                                </constraints>
+                                <state key="normal" title="Realizar Login">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Ndu-2b-xG3" firstAttribute="centerX" secondItem="AQv-ZD-D3q" secondAttribute="centerX" id="CEc-fo-zQV"/>
+                            <constraint firstItem="FTj-W8-PdK" firstAttribute="leading" secondItem="HIO-An-deP" secondAttribute="leading" constant="16" id="Crp-dX-03v"/>
+                            <constraint firstItem="Cdw-ok-y6k" firstAttribute="centerX" secondItem="loc-39-5nl" secondAttribute="centerX" id="Yck-Ug-OwT"/>
+                            <constraint firstItem="FTj-W8-PdK" firstAttribute="top" secondItem="Cdw-ok-y6k" secondAttribute="bottom" constant="20" id="gqU-eu-V1V"/>
+                            <constraint firstItem="HIO-An-deP" firstAttribute="trailing" secondItem="FTj-W8-PdK" secondAttribute="trailing" constant="16" id="n4T-Bi-jA5"/>
+                            <constraint firstItem="Ndu-2b-xG3" firstAttribute="top" secondItem="FTj-W8-PdK" secondAttribute="bottom" constant="20" id="rLg-ww-lHM"/>
+                            <constraint firstItem="FTj-W8-PdK" firstAttribute="centerY" secondItem="loc-39-5nl" secondAttribute="centerY" id="yCz-NQ-Inm"/>
+                            <constraint firstItem="FTj-W8-PdK" firstAttribute="centerX" secondItem="loc-39-5nl" secondAttribute="centerX" id="zoM-rH-dsp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="HIO-An-deP"/>
+                    </view>
+                    <connections>
+                        <outlet property="boxViewEmail" destination="FTj-W8-PdK" id="x4J-XV-UJH"/>
+                        <outlet property="sendButton" destination="Ndu-2b-xG3" id="MBH-tN-Nxm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bta-BW-PWZ" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
+        </scene>
+    </scenes>
+</document>
