@@ -16,6 +16,8 @@ protocol LoginPresenterOutput: class {
     func didError()
     func alert(title: String, message: String)
     func clearBorder()
+    func loading()
+    func stopLoading()
 }
 
 protocol LoginInteractorInput {

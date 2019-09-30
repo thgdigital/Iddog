@@ -24,12 +24,14 @@ class LoginPresenter: LoginPresenterInput {
     func sendLogin(with email: String?) {
         output?.clearBorder()
         interactor.fecth(email: email)
+        output?.loading()
     }
 }
 
 extension LoginPresenter: LoginInteractorOutput {
     
     func didError(with error: ErrorType) {
+        output?.stopLoading()
         let title = "Oppss Error"
         switch error {
         case .emailEmpty, .emailInvalid:

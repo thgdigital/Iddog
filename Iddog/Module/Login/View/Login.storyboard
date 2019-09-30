@@ -39,9 +39,9 @@
                                     <constraint firstAttribute="trailing" secondItem="AQv-ZD-D3q" secondAttribute="trailing" id="xnD-fy-4Ue"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ndu-2b-xG3">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ndu-2b-xG3" customClass="RNLoadingButton" customModule="RNLoadingButton_Swift">
                                 <rect key="frame" x="92" y="493" width="250" height="50"/>
-                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="YAV-JM-Iew"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="hDo-zs-J4G"/>

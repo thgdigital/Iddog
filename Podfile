@@ -8,6 +8,7 @@ target 'Iddog' do
   # Pods for Iddog
 pod 'Alamofire'
 pod 'SDWebImage', '~> 5.0'
+pod 'RNLoadingButton-Swift'
 
   target 'IddogTests' do
     inherit! :search_paths
