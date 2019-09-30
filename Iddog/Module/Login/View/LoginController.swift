@@ -48,6 +48,13 @@ extension LoginController: LoginPresenterOutput {
     
     func alert(title: String, message: String) {
         
+        let alert  = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Tentar Novamente", style: .default, handler: { dados in
+            self.presenter?.sendLogin(with: self.emailTextField.text)
+        }))
+        
+        present(alert, animated: true)
     }
     
     func didError() {

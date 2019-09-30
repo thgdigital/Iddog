@@ -46,7 +46,7 @@ class LoginInteractor: LoginInteractorInput {
                     if success {
                         self.output?.didLogged()
                     } else {
-                        self.output?.didError(with: .serve)
+                        self.output?.didError(with: .unauthorized)
                     }
                 })
             case let .failure(error):
@@ -65,7 +65,12 @@ class LoginInteractor: LoginInteractorInput {
         Alamofire.request(RouterManager.feed(parameters: parameters, token: token)).responseJSON { response in
             switch response.result {
             case .success:
-                completion(true)
+                if response.response?.statusCode == 200 {
+                   completion(true)
+                } else {
+                    completion(false)
+                }
+               
             case .failure:
                 completion(false)
             }
