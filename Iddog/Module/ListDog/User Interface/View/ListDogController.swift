@@ -8,6 +8,7 @@
 
 
 import UIKit
+import Lightbox
 
 class ListDogController: UIViewController {
     
@@ -42,7 +43,9 @@ class ListDogController: UIViewController {
     
     func setupLayout() {
         guard let navigationController = navigationController else { return }
-        navigationController.navigationBar.prefersLargeTitles = true
+        if #available(iOS 11.0, *) {
+            navigationController.navigationBar.prefersLargeTitles = true
+        }
         menuBar.backgroundColor = .white
         view.backgroundColor = .white
         view.addSubview(menuBar)
@@ -50,14 +53,17 @@ class ListDogController: UIViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.contentInsetAdjustmentBehavior = .never
+        
+        if #available(iOS 11.0, *) {
+            collectionView.contentInsetAdjustmentBehavior = .never
+        }
         menuBar.delegate = self
         collectionView.register(DogCell.self, forCellWithReuseIdentifier: DogCell.identifier)
         NSLayoutConstraint.activate([
             menuBar.heightAnchor.constraint(equalToConstant: 40),
             menuBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             menuBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            menuBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            menuBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionView.topAnchor.constraint(equalTo: menuBar.bottomAnchor),
@@ -74,6 +80,13 @@ class ListDogController: UIViewController {
     
 }
 
+extension ListDogController: LightboxControllerDismissalDelegate {
+    
+    func lightboxControllerWillDismiss(_ controller: LightboxController) {
+//        controller.dismiss(animated: true, completion: nil)
+    }
+}
+
 extension ListDogController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return listDog.count
@@ -81,7 +94,7 @@ extension ListDogController: UICollectionViewDataSource, UICollectionViewDelegat
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DogCell.identifier, for: indexPath) as! DogCell
-        cell.presenter = ItemPresenterBuilder.make(category: listCategory[indexPath.row], view: cell)
+        cell.presenter = ItemPresenterBuilder.make(category: listCategory[indexPath.row], view: cell, controller: self)
         cell.presenter.viewDidLoad()
         return cell
     }
@@ -114,6 +127,7 @@ extension ListDogController: MenuBarDelegate {
 }
 
 extension ListDogController: ListDogPresenterOutput {
+    
     func fetch(list: [String], category: [Category]) {
         listCategory = category
         listDog = list
