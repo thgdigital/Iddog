@@ -32,7 +32,6 @@ class ListDogController: UIViewController {
     var listDog: [String] = []
     var listCategory: [Category] = []
     var presenter: ListDogPresenterInput!
-    private let pagingViewController = CustomPagingViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()

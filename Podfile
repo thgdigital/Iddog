@@ -9,8 +9,6 @@ target 'Iddog' do
 pod 'Alamofire'
 pod 'SDWebImage', '~> 5.0'
 pod 'RNLoadingButton-Swift'
-pod 'Parchment'
-
 
   target 'IddogTests' do
     inherit! :search_paths
