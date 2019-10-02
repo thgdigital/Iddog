@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import Lightbox
 
 class DogCell: CollectionCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     var items: [String] = []
     
     var presenter: ItemPresenterInput!
-   
+    
     let activityIndicator = UIActivityIndicatorView(frame: .zero)
     
     override func setupViews() {
@@ -89,10 +90,32 @@ class DogCell: CollectionCell, UICollectionViewDataSource, UICollectionViewDeleg
         cell.setupImage(imageString: items[indexPath.row])
         return cell
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let urls = items.map({ URL(string: $0 )! })
+        let lightboxImage = urls.map({ LightboxImage(imageURL: $0) })
+        
+        let topController = UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.visibleViewController()
+        
+        let controller = LightboxController(images: lightboxImage, startIndex: indexPath.row)
+        controller.dismissalDelegate = self
+        LightboxConfig.CloseButton.text = "Fechar"
+        
+        topController?.present(controller, animated: true)
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: frame.width, height: 200)
     }
+}
+
+extension DogCell: LightboxControllerDismissalDelegate {
+    
+    func lightboxControllerWillDismiss(_ controller: LightboxController) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    
 }
 
 extension DogCell: ItemPresenterOutput {
