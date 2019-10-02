@@ -11,7 +11,7 @@ import Alamofire
 enum RouterManager: URLRequestConvertible {
     static let baseURLString = "https://api-iddog.idwall.co"
     case login(parameters: Parameters)
-    case feed(parameters: Parameters, token: String)
+    case feed(parameters: Parameters)
     
     var method: HTTPMethod {
         switch self {
@@ -35,9 +35,10 @@ enum RouterManager: URLRequestConvertible {
         let url = try RouterManager.baseURLString.asURL()
         var urlRequest = URLRequest(url: url.appendingPathComponent(path))
         urlRequest.httpMethod = method.rawValue
+        urlRequest.cachePolicy = .reloadIgnoringCacheData
 
         switch self {
-        case .feed(let parameters, let token):
+        case .feed(let parameters):
             
             urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
             
@@ -49,8 +50,8 @@ enum RouterManager: URLRequestConvertible {
             } else {
               headers = HTTPHeaders()
             }
-            
-            headers["Authorization"] =  token
+
+            headers["Authorization"] = UserManager().getToken()
             
             urlRequest.allHTTPHeaderFields = headers
         case .login(let parameters):

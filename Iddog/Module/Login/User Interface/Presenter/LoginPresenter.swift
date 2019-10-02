@@ -46,6 +46,6 @@ extension LoginPresenter: LoginInteractorOutput {
     }
     
     func didLogged() {
-        
+        wireframe.listDog()
     }
 }

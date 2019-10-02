@@ -9,10 +9,18 @@ target 'Iddog' do
 pod 'Alamofire'
 pod 'SDWebImage', '~> 5.0'
 pod 'RNLoadingButton-Swift'
+pod 'Parchment'
+
 
   target 'IddogTests' do
     inherit! :search_paths
     # Pods for testing
   end
 
+end
+
+pre_install do |installer|
+  installer.analysis_result.specifications.each do |s|
+    s.swift_version = '4.2' unless s.swift_version
+  end
 end

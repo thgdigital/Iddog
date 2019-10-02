@@ -13,6 +13,12 @@ class LoginInteractor: LoginInteractorInput {
     
     weak var output: LoginInteractorOutput?
     
+    var userManager: UserManager
+    
+    init(userManager: UserManager) {
+        self.userManager = userManager
+    }
+    
     func fecth(email: String?) {
         
         guard let email = email else {
@@ -42,11 +48,14 @@ class LoginInteractor: LoginInteractorInput {
                     return
                 }
                
+                self.userManager.save(user: userModel.user)
+                
                 self.validUser(token: userModel.user.token, completion: { (success) -> Void in
                     if success {
                         self.output?.didLogged()
                     } else {
                         self.output?.didError(with: .unauthorized)
+                        self.userManager.clearUserData()
                     }
                 })
             case let .failure(error):
@@ -62,7 +71,7 @@ class LoginInteractor: LoginInteractorInput {
     
      func validUser(token: String, completion: @escaping (Bool) -> ()) {
         let parameters: [String: Any] = [ "category": Category.husky]
-        Alamofire.request(RouterManager.feed(parameters: parameters, token: token)).responseJSON { response in
+        Alamofire.request(RouterManager.feed(parameters: parameters)).responseJSON { response in
             switch response.result {
             case .success:
                 if response.response?.statusCode == 200 {

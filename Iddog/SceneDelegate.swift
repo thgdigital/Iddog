@@ -19,7 +19,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window.windowScene = windowScene
-        window.rootViewController = LoginRoute().makeScreen()
+        let manager = UserManager()
+        
+        if manager.getToken().isEmpty {
+            window.rootViewController = LoginRoute().makeScreen(windows: window)
+        } else {
+            window.rootViewController = ListDogRoute().makeScreen(windows: window)
+        }
         self.window = window
         window.makeKeyAndVisible()
     }

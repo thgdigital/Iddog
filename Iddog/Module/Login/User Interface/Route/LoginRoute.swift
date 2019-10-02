@@ -6,7 +6,7 @@
 //  Copyright © 2019 Thiago Santos. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class LoginRoute: StoryboardInstanciate {
     
@@ -14,10 +14,13 @@ class LoginRoute: StoryboardInstanciate {
     
     weak var viewController: LoginController?
     
-     func makeScreen() -> LoginController {
-        let interactor = LoginInteractor()
+    weak var windows: UIWindow?
+    
+     func makeScreen(windows: UIWindow?) -> LoginController {
+        let interactor = LoginInteractor(userManager: UserManager())
         let presenter = LoginPresenter(wireframe: self, interactor: interactor)
         interactor.output = presenter
+        self.windows = windows
         
        guard let loginControler = viewControllerFromStoryboard(withIdentifier: "LoginController") as? LoginController else {
             fatalError("Não existe ViewController")
@@ -27,4 +30,9 @@ class LoginRoute: StoryboardInstanciate {
         presenter.output = viewController
         return loginControler
     }
+    
+    func listDog() {
+        windows?.rootViewController = ListDogRoute().makeScreen(windows: windows)
+    }
+    
 }
