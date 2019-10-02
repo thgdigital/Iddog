@@ -11,6 +11,7 @@ import Foundation
 protocol ItemPresenterInput {
     func viewDidLoad()
     func retry()
+    func didSelected(index: Int)
 }
 
 protocol ItemPresenterOutput: class {

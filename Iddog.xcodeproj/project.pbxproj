@@ -42,6 +42,7 @@
 		AFF40DDD2344E05200D138BB /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF40DDC2344E05100D138BB /* CollectionCell.swift */; };
 		AFF40DDF2344E08B00D138BB /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF40DDE2344E08B00D138BB /* MenuCell.swift */; };
 		AFF40DE12344E22100D138BB /* DogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF40DE02344E22100D138BB /* DogCell.swift */; };
+		AFF40DF0234505C300D138BB /* LoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF40DEF234505C300D138BB /* LoginTest.swift */; };
 		E012FCA5EE28D31EF7345D80 /* Pods_Iddog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DD468CB518DA58FF05C3D63 /* Pods_Iddog.framework */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +101,7 @@
 		AFF40DDC2344E05100D138BB /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		AFF40DDE2344E08B00D138BB /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		AFF40DE02344E22100D138BB /* DogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogCell.swift; sourceTree = "<group>"; };
+		AFF40DEF234505C300D138BB /* LoginTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 			children = (
 				AF4F5D4F233E3EEE00EFD91F /* IddogTests.swift */,
 				AF4F5D51233E3EEE00EFD91F /* Info.plist */,
+				AFF40DEF234505C300D138BB /* LoginTest.swift */,
 			);
 			path = IddogTests;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 				AF4F5D47233E3EEE00EFD91F /* Sources */,
 				AF4F5D48233E3EEE00EFD91F /* Frameworks */,
 				AF4F5D49233E3EEE00EFD91F /* Resources */,
+				9658FBCAD5A77E10EB7EB5F3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -551,6 +555,30 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		9658FBCAD5A77E10EB7EB5F3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IddogTests/Pods-IddogTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IddogTests/Pods-IddogTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		99AE22B81DCCAEAED36C508C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -561,6 +589,9 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Iddog/Pods-Iddog-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
+				"${BUILT_PRODUCTS_DIR}/Imaginary/Imaginary.framework",
+				"${BUILT_PRODUCTS_DIR}/Lightbox/Lightbox.framework",
 				"${BUILT_PRODUCTS_DIR}/RNLoadingButton-Swift/RNLoadingButton_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
@@ -569,6 +600,9 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Imaginary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lightbox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RNLoadingButton_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
@@ -643,6 +677,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF4F5D50233E3EEE00EFD91F /* IddogTests.swift in Sources */,
+				AFF40DF0234505C300D138BB /* LoginTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -790,11 +825,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 29MQPP6L4J;
 				INFOPLIST_FILE = Iddog/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.thgdigital.Iddog;
+				PRODUCT_BUNDLE_IDENTIFIER = com.globo.oglobo.DigitalPages;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -809,11 +845,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 29MQPP6L4J;
 				INFOPLIST_FILE = Iddog/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.thgdigital.Iddog;
+				PRODUCT_BUNDLE_IDENTIFIER = com.globo.oglobo.DigitalPages;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

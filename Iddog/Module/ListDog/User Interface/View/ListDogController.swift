@@ -59,11 +59,13 @@ class ListDogController: UIViewController {
         }
         menuBar.delegate = self
         collectionView.register(DogCell.self, forCellWithReuseIdentifier: DogCell.identifier)
+        
+        
         NSLayoutConstraint.activate([
             menuBar.heightAnchor.constraint(equalToConstant: 40),
             menuBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             menuBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            menuBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
+            menuBar.topAnchor.constraint(equalTo:topLayoutGuide.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionView.topAnchor.constraint(equalTo: menuBar.bottomAnchor),
@@ -80,12 +82,6 @@ class ListDogController: UIViewController {
     
 }
 
-extension ListDogController: LightboxControllerDismissalDelegate {
-    
-    func lightboxControllerWillDismiss(_ controller: LightboxController) {
-//        controller.dismiss(animated: true, completion: nil)
-    }
-}
 
 extension ListDogController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -118,12 +114,10 @@ extension ListDogController: UICollectionViewDataSource, UICollectionViewDelegat
 }
 
 extension ListDogController: MenuBarDelegate {
-    
     func scrollToMenuIndex(menuIndex: Int) {
         let indexPath = IndexPath(item: menuIndex, section: 0)
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
-    
 }
 
 extension ListDogController: ListDogPresenterOutput {

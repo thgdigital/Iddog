@@ -91,31 +91,12 @@ class DogCell: CollectionCell, UICollectionViewDataSource, UICollectionViewDeleg
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        let urls = items.map({ URL(string: $0 )! })
-        let lightboxImage = urls.map({ LightboxImage(imageURL: $0) })
-        
-        let topController = UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.visibleViewController()
-        
-        let controller = LightboxController(images: lightboxImage, startIndex: indexPath.row)
-        controller.dismissalDelegate = self
-        LightboxConfig.CloseButton.text = "Fechar"
-        
-        topController?.present(controller, animated: true)
+        presenter.didSelected(index: indexPath.row)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: frame.width, height: 200)
     }
-}
-
-extension DogCell: LightboxControllerDismissalDelegate {
-    
-    func lightboxControllerWillDismiss(_ controller: LightboxController) {
-        controller.dismiss(animated: true, completion: nil)
-    }
-    
-    
 }
 
 extension DogCell: ItemPresenterOutput {
@@ -132,16 +113,7 @@ extension DogCell: ItemPresenterOutput {
     
     func alert(title: String, message: String) {
         
-        let alert  = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
-        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
-        
-        alert.addAction(UIAlertAction(title: "Tentar Novamente", style: .default, handler: { dados in
-            self.presenter?.viewDidLoad()
-        }))
-        
-        let topController = UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.visibleViewController()
-        topController?.present(alert, animated: true)
+      
     }
     
     func fecthed(list: [String]) {

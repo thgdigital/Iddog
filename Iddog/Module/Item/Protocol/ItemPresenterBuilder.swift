@@ -6,13 +6,13 @@
 //  Copyright © 2019 Thiago Santos. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class ItemPresenterBuilder {
 
-    static func make(category: Category, view: ItemPresenterOutput?) -> ItemPresenter {
+    static func make(category: Category, view: ItemPresenterOutput?, controller: ListDogController) -> ItemPresenter {
         let interactor = ItemInteractor()
-        let route = ItemRoute()
+        let route = ItemRoute(listDogController: controller)
         let presenter = ItemPresenter(type: category, interactor: interactor, userManager: UserManager(), route: route)
         interactor.output = presenter
         presenter.output = view
