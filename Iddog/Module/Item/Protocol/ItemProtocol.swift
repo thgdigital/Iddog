@@ -10,6 +10,7 @@ import Foundation
 
 protocol ItemPresenterInput {
     func viewDidLoad()
+    func retry()
 }
 
 protocol ItemPresenterOutput: class {

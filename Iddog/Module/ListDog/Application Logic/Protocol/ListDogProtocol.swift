@@ -10,6 +10,7 @@ import Foundation
 
 protocol ListDogPresenterInput {
     func viewDidLoad()
+    func logout()
 }
 protocol ListDogPresenterOutput: class {
     func fetch(list: [String], category: [Category])

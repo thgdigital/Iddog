@@ -8,7 +8,6 @@
 
 
 import UIKit
-import Parchment
 
 class ListDogController: UIViewController {
     
@@ -38,14 +37,17 @@ class ListDogController: UIViewController {
         presenter.viewDidLoad()
         
         title = "Listas de Dogs"
-        
+        setupLayout()
+    }
+    
+    func setupLayout() {
         guard let navigationController = navigationController else { return }
         navigationController.navigationBar.prefersLargeTitles = true
         menuBar.backgroundColor = .white
         view.backgroundColor = .white
         view.addSubview(menuBar)
-        
         view.addSubview(collectionView)
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.contentInsetAdjustmentBehavior = .never
@@ -62,8 +64,13 @@ class ListDogController: UIViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
+        let btnLogout = UIBarButtonItem(title: "Sair", style: .done, target: self, action: #selector(logoutUser))
+        navigationItem.rightBarButtonItem = btnLogout
     }
     
+    @objc func logoutUser() {
+        presenter.logout()
+    }
     
 }
 

@@ -22,9 +22,11 @@ protocol LoginPresenterOutput: class {
 
 protocol LoginInteractorInput {
     func fecth(email: String?)
+    func AuthenticatedUser()
 }
 
 protocol LoginInteractorOutput: class {
     func didError(with error: ErrorType)
     func didLogged()
+    func loggedIn(user: UserModel)
 }

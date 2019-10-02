@@ -28,10 +28,19 @@ class ItemPresenter: ItemPresenterInput {
     }
     
     func viewDidLoad() {
+        fetch()
+    }
+    
+    func retry() {
+        fetch()
+    }
+    
+    func fetch() {
         interactor.fecth(category: type)
         output?.loading()
     }
 }
+
 extension ItemPresenter: ItemInteractorOutput {
     
     func fetched(list: [String]) {

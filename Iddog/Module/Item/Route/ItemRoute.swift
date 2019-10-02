@@ -14,6 +14,5 @@ class ItemRoute {
         let windows = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
         let loginController = LoginRoute().makeScreen(windows: windows)
         windows?.rootViewController = loginController
-        
     }
 }

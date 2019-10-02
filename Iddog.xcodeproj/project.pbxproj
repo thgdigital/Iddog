@@ -35,7 +35,6 @@
 		AFF40DC62342AF1A00D138BB /* ItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF40DC52342AF1A00D138BB /* ItemsModel.swift */; };
 		AFF40DCB2342BE4300D138BB /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF40DC92342BE4300D138BB /* ItemCell.swift */; };
 		AFF40DCC2342BE4300D138BB /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFF40DCA2342BE4300D138BB /* ItemCell.xib */; };
-		AFF40DD22342C84D00D138BB /* CustomPagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF40DD12342C84D00D138BB /* CustomPagingView.swift */; };
 		AFF40DD42343848F00D138BB /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF40DD32343848F00D138BB /* MenuBar.swift */; };
 		AFF40DD62344C41600D138BB /* ItemPresenterBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF40DD52344C41600D138BB /* ItemPresenterBuilder.swift */; };
 		AFF40DD92344C75000D138BB /* UserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF40DD82344C75000D138BB /* UserInteractor.swift */; };
@@ -94,7 +93,6 @@
 		AFF40DC52342AF1A00D138BB /* ItemsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsModel.swift; sourceTree = "<group>"; };
 		AFF40DC92342BE4300D138BB /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		AFF40DCA2342BE4300D138BB /* ItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
-		AFF40DD12342C84D00D138BB /* CustomPagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPagingView.swift; sourceTree = "<group>"; };
 		AFF40DD32343848F00D138BB /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 		AFF40DD52344C41600D138BB /* ItemPresenterBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemPresenterBuilder.swift; sourceTree = "<group>"; };
 		AFF40DD82344C75000D138BB /* UserInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInteractor.swift; sourceTree = "<group>"; };
@@ -303,7 +301,6 @@
 		AFF40DD02342C83200D138BB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AFF40DD12342C84D00D138BB /* CustomPagingView.swift */,
 				AFF40DD32343848F00D138BB /* MenuBar.swift */,
 				AFF40DDC2344E05100D138BB /* CollectionCell.swift */,
 				AFF40DDE2344E08B00D138BB /* MenuCell.swift */,
@@ -634,7 +631,6 @@
 				AF4F5D72233E780100EFD91F /* StoryboardInstanciate.swift in Sources */,
 				AFF40DB323423ABF00D138BB /* ListDogPresenter.swift in Sources */,
 				AFF40DC42342AD2100D138BB /* ItemInteractor.swift in Sources */,
-				AFF40DD22342C84D00D138BB /* CustomPagingView.swift in Sources */,
 				AFF40DAB233E9F5600D138BB /* UserModel.swift in Sources */,
 				AFF40DC22342AB7900D138BB /* ItemRoute.swift in Sources */,
 				AFF40DDF2344E08B00D138BB /* MenuCell.swift in Sources */,

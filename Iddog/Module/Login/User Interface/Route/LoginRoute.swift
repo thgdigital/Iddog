@@ -18,7 +18,8 @@ class LoginRoute: StoryboardInstanciate {
     
      func makeScreen(windows: UIWindow?) -> LoginController {
         let interactor = LoginInteractor(userManager: UserManager())
-        let presenter = LoginPresenter(wireframe: self, interactor: interactor)
+        let userInteractor = UserInteractor(manager: UserManager())
+        let presenter = LoginPresenter(wireframe: self, interactor: interactor, userInteractor: userInteractor)
         interactor.output = presenter
         self.windows = windows
         

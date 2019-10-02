@@ -16,9 +16,12 @@ class LoginPresenter: LoginPresenterInput {
     
     var interactor: LoginInteractorInput
     
-    init(wireframe: LoginRoute, interactor: LoginInteractorInput) {
+    var userInteractor: UserInteractorInput
+    
+    init(wireframe: LoginRoute, interactor: LoginInteractorInput, userInteractor: UserInteractorInput) {
         self.wireframe = wireframe
         self.interactor = interactor
+        self.userInteractor = userInteractor
     }
     
     func sendLogin(with email: String?) {
@@ -30,6 +33,11 @@ class LoginPresenter: LoginPresenterInput {
 
 extension LoginPresenter: LoginInteractorOutput {
     
+    func loggedIn(user: UserModel) {
+        userInteractor.save(user: user)
+        interactor.AuthenticatedUser()
+    }
+
     func didError(with error: ErrorType) {
         output?.stopLoading()
         let title = "Oppss Error"
@@ -41,6 +49,7 @@ extension LoginPresenter: LoginInteractorOutput {
         case .serve:
             output?.alert(title: title, message: "Error com conexão do servidor")
         case .unauthorized:
+            userInteractor.deleteUser()
             output?.alert(title: title, message: "Usuário não autorizado")
         }
     }

@@ -25,7 +25,6 @@ class LoginInteractor: LoginInteractorInput {
             output?.didError(with: .emailInvalid)
             return
         }
-        
         if email.isEmpty {
             output?.didError(with: .emailEmpty)
         } else if !email.validEmail() {
@@ -47,17 +46,7 @@ class LoginInteractor: LoginInteractorInput {
                     self.output?.didError(with: .serve)
                     return
                 }
-               
-                self.userManager.save(user: userModel.user)
-                
-                self.validUser(token: userModel.user.token, completion: { (success) -> Void in
-                    if success {
-                        self.output?.didLogged()
-                    } else {
-                        self.output?.didError(with: .unauthorized)
-                        self.userManager.clearUserData()
-                    }
-                })
+            self.output?.loggedIn(user: userModel.user)
             case let .failure(error):
                 if let error = error as? URLError, error.code == .notConnectedToInternet {
                     self.output?.didError(with: .networking)
@@ -69,24 +58,34 @@ class LoginInteractor: LoginInteractorInput {
         
     }
     
-     func validUser(token: String, completion: @escaping (Bool) -> ()) {
+    func AuthenticatedUser() {
+        self.validUser(completion: { (success) -> Void in
+            if success {
+                self.output?.didLogged()
+            } else {
+                self.output?.didError(with: .unauthorized)
+            }
+        })
+    }
+    
+    func validUser(completion: @escaping (Bool) -> ()) {
         let parameters: [String: Any] = [ "category": Category.husky]
         Alamofire.request(RouterManager.feed(parameters: parameters)).responseJSON { response in
             switch response.result {
             case .success:
                 if response.response?.statusCode == 200 {
-                   completion(true)
+                    completion(true)
                 } else {
                     completion(false)
                 }
-               
+                
             case .failure:
                 completion(false)
             }
         }
     }
     
-     func getUser(data: Data) -> LoginUserModel? {
+    func getUser(data: Data) -> LoginUserModel? {
         do {
             let decoder = JSONDecoder()
             let userModel = try decoder.decode(LoginUserModel.self, from: data)
